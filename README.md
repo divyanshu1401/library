@@ -1,24 +1,16 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+To run this app first clone this in your local machine with 'git clone https://github.com/divyanshu1401/library.git' and then follow the steps given below
 
-Things you may want to cover:
+1-> cd library
 
-* Ruby version
+2-> bundle install
 
-* System dependencies
+3-> rails db:migrate
 
-* Configuration
+4-> rails s
 
-* Database creation
+5-> If you get Rails: Webpacker::Manifest::MissingEntryError 
+    -> run 'rails webpacker:install'
 
-* Database initialization
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
