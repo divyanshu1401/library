@@ -10,7 +10,6 @@ module Api
         end
 
         def create
-          byebug
           @book = Book.create!(book_params)
           render json: {
             book: @book

@@ -35,7 +35,6 @@ module Api
         end
 
         def set_author
-            byebug
             @author = Author.find(params[:id])
         end
     
