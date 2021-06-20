@@ -1,0 +1,48 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-10">
+      <%= form_with(model: author) do |form| %>
+        <% if author.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(author.errors.count, "error") %> prohibited this author from being saved:</h2>
+            <ul>
+              <% author.errors.each do |error| %>
+                <li><%= error.full_message %></li>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
+
+        <div class="mb-3">
+          <div class="col-10">
+          <%= form.number_field :author_id, class: "form-control shadow rounded", placeholder: "Author ID" %>
+        </div>
+        <br/>
+        <div class="mb-3">  
+          <div class="col-10">
+          <%= form.text_field :first_name, class: "form-control shadow rounded", placeholder: "First Name" %>
+        </div>
+        <br/>
+        <div class="mb-3">
+          <div class="col-10">
+          <%= form.text_field :last_name, class: "form-control shadow rounded", placeholder: "Last Name" %>
+        </div>
+        <br/>
+        <div class="mb-3">
+          <div class="col-10">
+          <%= form.text_field :date_of_birth, class: "form-control shadow rounded", placeholder: "Date of Birth" %>
+        </div>
+        <br/>
+        <%# <%= form.select(:TYPE, @books,{ :prompt => "Please select"},
+                                  { :multiple => true, :size => 5 }
+                                  ) %> 
+        <div class="actions">
+          <%= form.submit %>
+        </div>
+
+
+
+      <% end %>
+      </div>
+  </div>
+</div>

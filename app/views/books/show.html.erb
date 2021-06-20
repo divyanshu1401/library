@@ -1,0 +1,21 @@
+<p>
+  <strong>Book ID:</strong>
+  <%= @book.book_id %>
+</p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @book.book_title %>
+</p>
+
+<p>
+  <strong>Authors:</strong>
+  <% if @book.authors%>
+  <% @book.authors.each do |author| %>
+  <%= link_to author.first_name, author %> |
+  <%end%>
+  <%end%>
+</p>
+
+<%= link_to 'Edit', edit_book_path(@book) %> |
+<%= link_to 'Back', books_path %>
