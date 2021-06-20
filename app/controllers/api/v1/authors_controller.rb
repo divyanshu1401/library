@@ -10,6 +10,18 @@ module Api
             render json: Author.all
         end
 
+        def create
+            @author = Author.create!(author_params)
+            render json: {
+                author: @author
+            }
+        end
+
+        def update
+            @author.update(author_params)
+            head :no_content
+        end
+
         def show
             book_ids = AuthorBook.where(author_id: params[:id]).pluck('book_id')
             books = Book.where(book_id: book_ids).pluck('book_title')
@@ -23,11 +35,12 @@ module Api
         end
 
         def set_author
+            byebug
             @author = Author.find(params[:id])
         end
     
         def author_params
-            params.require(:author).permit(:author_id, :first_name, :last_name, :date_of_birth)
+            params.permit(:author_id, :first_name, :last_name, :date_of_birth)
         end
       end
     end

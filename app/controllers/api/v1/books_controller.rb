@@ -9,6 +9,20 @@ module Api
             render json: Book.all
         end
 
+        def create
+          byebug
+          @book = Book.create!(book_params)
+          render json: {
+            book: @book
+          }
+        end
+
+        
+        def update
+          @book.update(book_params)
+          head :no_content
+        end
+
         def show
           author_ids = AuthorBook.where(book_id: params[:id]).pluck('author_id')
           authors = Author.where(author_id: author_ids).pluck('first_name')
@@ -28,7 +42,7 @@ module Api
         end
 
         def book_params
-            params.require(:book).permit(:book_id, :book_title, :authors)
+            params.permit(:book_id, :book_title)
         end
       end
     end
